@@ -19,7 +19,10 @@
         <activity android:name=".TankTimeline" />
         <activity android:name=".Tasks" />
         <activity android:name=".AddExpense" />
-        <activity android:name=".Expenses"></activity>
+        <activity android:name=".Expenses" />
+        <activity android:name=".AddWaterParam" />
+        <activity android:name=".AddTimeline" />
+        <activity android:name=".AddTask"></activity>
     </application>
 
 </manifest>
