@@ -21,7 +21,7 @@ public class Expenses extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter<>(this,
                 R.layout.activity_listview, expenseArray);
 
-        ListView listView = (ListView) findViewById(R.id.mobile_list);
+        ListView listView = (ListView) findViewById(R.id.expense_list);
         listView.setAdapter(adapter);
     }
 
