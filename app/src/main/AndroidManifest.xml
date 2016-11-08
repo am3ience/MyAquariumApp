@@ -18,6 +18,7 @@
         <activity android:name=".WaterParams" />
         <activity android:name=".TankTimeline" />
         <activity android:name=".Tasks" />
+        <activity android:name=".AddExpense" />
         <activity android:name=".Expenses"></activity>
     </application>
 

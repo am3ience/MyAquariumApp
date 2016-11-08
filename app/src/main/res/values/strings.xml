@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyAquariumApp</string>
+    <string name="title_activity_expenses">Expenses</string>
 </resources>

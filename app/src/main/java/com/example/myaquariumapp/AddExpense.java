@@ -5,17 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class Expenses extends AppCompatActivity {
+public class AddExpense extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_expenses);
-    }
-
-    public void OpenAddExpense(View view) {
-        Intent intent = new Intent(this, AddExpense.class);
-        startActivity(intent);
+        setContentView(R.layout.activity_add_expense);
     }
 
 

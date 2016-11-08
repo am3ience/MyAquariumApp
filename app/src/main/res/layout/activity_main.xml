@@ -10,8 +10,47 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.myaquariumapp.MainActivity">
 
-    <TextView
+    <Button
+        android:text="Params"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/button"
+        android:textSize="12sp"
+        android:onClick="OpenParams"/>
+
+    <Button
+        android:text="Timeline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button"
+        android:layout_toEndOf="@+id/button"
+        android:id="@+id/button2"
+        android:textSize="12sp"
+        android:onClick="OpenTimeline"/>
+
+    <Button
+        android:text="Tasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button2"
+        android:layout_toEndOf="@+id/button2"
+        android:id="@+id/button3"
+        android:textSize="12sp"
+        android:onClick="OpenTasks"/>
+
+    <Button
+        android:text="Expenses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button3"
+        android:layout_toEndOf="@+id/button3"
+        android:id="@+id/button4"
+        android:textSize="12sp"
+        android:onClick="OpenExpenses"/>
 </RelativeLayout>
