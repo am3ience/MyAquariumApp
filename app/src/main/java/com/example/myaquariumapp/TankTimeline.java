@@ -9,5 +9,6 @@ public class TankTimeline extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tank_timeline);
+        setTitle("Tank Timeline");
     }
 }

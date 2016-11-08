@@ -9,5 +9,6 @@ public class WaterParams extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water_params);
+        setTitle("Water Parameters");
     }
 }
