@@ -79,7 +79,8 @@
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="28dp">
+        android:layout_marginTop="28dp"
+        android:id="@+id/RadioGroup">
 
         <TextView
             android:text="Category:"
