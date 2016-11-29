@@ -2,6 +2,7 @@ package com.example.myaquariumapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.style.TtsSpan;
@@ -14,8 +15,8 @@ import com.example.myaquariumapp.TableData.TableInfo;
  */
 
 public class DatabaseOperations extends SQLiteOpenHelper {
-    public static final int database_version = 2;
-    public String CREATE_QUERY = "CREATE TABLE " + TableInfo.TABLE_NAME + "(" + TableInfo.EXPENSE_NAME + " TEXT," + TableInfo.EXPENSE_COST + " TEXT," + TableInfo.EXPENSE_CATEGORY + " TEXT );";
+    public static final int database_version = 3;
+    public String CREATE_QUERY = "CREATE TABLE " + TableInfo.TABLE_NAME + "(" + TableInfo.EXPENSE_NAME + " TEXT," + TableInfo.EXPENSE_COST + " INTEGER," + TableInfo.EXPENSE_CATEGORY + " TEXT );";
 
     public DatabaseOperations (Context context){
         super(context, TableInfo.DATABASE_NAME, null, database_version);
@@ -32,8 +33,8 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     }
 
-    public void putInformation(DatabaseOperations dop, String name, String cost, String category){
-        SQLiteDatabase SQ = dop.getWritableDatabase();
+    public void putInformation(DatabaseOperations db, String name, int cost, String category){
+        SQLiteDatabase SQ = db.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(TableInfo.EXPENSE_NAME, name);
         cv.put(TableInfo.EXPENSE_COST, cost);
@@ -41,5 +42,15 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         long k = SQ.insert(TableInfo.TABLE_NAME, null, cv);
         Log.d("Database operations", "One row inserted.");
 
+    }
+
+    public Cursor getInformations(SQLiteDatabase db){
+
+        String[] projections ={TableInfo.EXPENSE_NAME, TableInfo.EXPENSE_COST,  TableInfo.EXPENSE_CATEGORY};
+
+        Cursor cursor = db.query(TableInfo.TABLE_NAME, projections,
+                        null, null, null, null, null);
+
+        return cursor;
     }
 }

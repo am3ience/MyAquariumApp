@@ -18,11 +18,15 @@ public class Expenses extends AppCompatActivity {
         setContentView(R.layout.activity_expenses);
         setTitle("Expenses");
 
+        BackgroundTask backgroundTask = new BackgroundTask(this);
+        backgroundTask.execute("get_info");
+        /*
         ArrayAdapter adapter = new ArrayAdapter<>(this,
                 R.layout.activity_listview, expenseArray);
 
-        ListView listView = (ListView) findViewById(R.id.expense_list);
+        ListView listView = (ListView) findViewById(R.id.display_expenses);
         listView.setAdapter(adapter);
+        */
     }
 
 

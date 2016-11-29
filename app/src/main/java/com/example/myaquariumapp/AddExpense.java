@@ -22,10 +22,13 @@ public class AddExpense extends AppCompatActivity {
     //EditText CostExpense = (EditText) findViewById(R.id.editText3);
     EditText expenseName, expenseCost;
     RadioGroup expenseCategory;
+
     RadioButton radioButton;
     String expenseNameString, expenseCostString, radiobutt, expenseCategoryString;
     Button REG;
     Context ctx = this;
+
+
 
 
     @Override
@@ -40,10 +43,10 @@ public class AddExpense extends AppCompatActivity {
 
         expenseCategory = (RadioGroup) findViewById(R.id.RadioGroup);
 
-        REG = (Button) findViewById(R.id.button);
-        REG.setOnClickListener(new View.OnClickListener(){
+        /*REG = (Button) findViewById(R.id.button);
+        REG.setOnClickListener(new View.OnClickListener(){*/
 
-            @Override
+            /*@Override
             public void onClick(View v){
                 expenseNameString = expenseName.getText().toString();
                 expenseCostString = expenseCost.getText().toString();
@@ -60,34 +63,31 @@ public class AddExpense extends AppCompatActivity {
                 DB.putInformation(DB, expenseNameString, expenseCostString, expenseCategoryString);
                 Toast.makeText(getBaseContext(), "Expense Added!", Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
 
 
     }
 
 
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
+    public void addExpense(View view) {
 
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radioButton:
-                if (checked)
-                    radiobutt = "Equipment";
-                    break;
-            case R.id.radioButton2:
-                if (checked)
-                    radiobutt = "Livestock";
-                    break;
-        }
+        expenseNameString = expenseName.getText().toString();
+        expenseCostString = expenseCost.getText().toString();
+
+        // get selected radio button from radioGroup
+        int selectedId = expenseCategory.getCheckedRadioButtonId();
+
+        // find the radiobutton by returned id
+        radioButton = (RadioButton) findViewById(selectedId);
+
+        expenseCategoryString = radioButton.getText().toString();
+
+        BackgroundTask backgroundTask = new BackgroundTask(this);
+        backgroundTask.execute("add_info", expenseNameString, expenseCostString, expenseCategoryString);
+
     }
 
-    /** Called when the user clicks the Submit button */
-    public void writeExpense(View view) {
-        // Do something in response to button
-        Intent intent = new Intent(this, Expenses.class);
-    }
+
 
 
 }
