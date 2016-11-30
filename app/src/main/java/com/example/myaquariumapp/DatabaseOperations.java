@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.style.TtsSpan;
 import android.util.Log;
+import android.view.View;
 
 import com.example.myaquariumapp.TableData.TableInfo;
 
@@ -53,4 +54,24 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
         return cursor;
     }
+
+    public Cursor getExpenseName(DatabaseOperations DOP, String name) {
+        SQLiteDatabase SQ = DOP.getReadableDatabase();
+        String selection = TableInfo.EXPENSE_NAME + " LIKE ?";
+        String columns[] = {TableInfo.EXPENSE_NAME};
+        String args[] = {name};
+        Cursor CR = SQ.query(TableInfo.TABLE_NAME, columns, selection, args, null, null, null);
+        return CR;
+    }
+
+    public void deleteEntry(DatabaseOperations DOP, String name){
+
+        String selection = TableInfo.EXPENSE_NAME + " LIKE ?";
+        String columns[] = {TableInfo.EXPENSE_NAME, TableInfo.EXPENSE_COST, TableInfo.EXPENSE_CATEGORY};
+        String args[] = {name};
+        SQLiteDatabase SQ = DOP.getWritableDatabase();
+        SQ.delete(TableInfo.TABLE_NAME, selection, args);
+    }
+
+
 }

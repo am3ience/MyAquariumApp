@@ -43,6 +43,7 @@ public class BackgroundTask extends AsyncTask<String, ExpenseDisplay, String> {
         }else if (method.equals("get_info")){
 
             listView = (ListView)activity.findViewById(R.id.display_expenses);
+
             SQLiteDatabase db = dbOperations.getReadableDatabase();
 
             Cursor cursor = dbOperations.getInformations(db);

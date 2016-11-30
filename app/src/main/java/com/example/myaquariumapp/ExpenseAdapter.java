@@ -68,4 +68,6 @@ public class ExpenseAdapter extends ArrayAdapter{
         TextView expense_name, expense_cost, expense_category;
 
     }
+
+
 }

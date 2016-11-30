@@ -1,16 +1,28 @@
 package com.example.myaquariumapp;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.support.design.internal.ForegroundLinearLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+
 
 public class Expenses extends AppCompatActivity {
 
-    String[] expenseArray = {"Filter $50","Goldfish $10","Tropical Fish Food $5","Fish net $10",
-            "10 gallon tank $40"};
+    FloatingActionButton Del;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +32,13 @@ public class Expenses extends AppCompatActivity {
 
         BackgroundTask backgroundTask = new BackgroundTask(this);
         backgroundTask.execute("get_info");
-        /*
-        ArrayAdapter adapter = new ArrayAdapter<>(this,
-                R.layout.activity_listview, expenseArray);
 
-        ListView listView = (ListView) findViewById(R.id.display_expenses);
-        listView.setAdapter(adapter);
-        */
+
+
+        //Del = (FloatingActionButton) findViewById(R.id.floatingActionButton2);
+
+
+
     }
 
 
@@ -34,6 +46,13 @@ public class Expenses extends AppCompatActivity {
         Intent intent = new Intent(this, AddExpense.class);
         startActivity(intent);
     }
+
+    public void OpenDeleteExpense(View view) {
+        Intent intent = new Intent(this, DeleteExpense.class);
+        startActivity(intent);
+    }
+
+
 
 
 }
