@@ -67,11 +67,21 @@ public class DatabaseOperations extends SQLiteOpenHelper {
     public void deleteEntry(DatabaseOperations DOP, String name){
 
         String selection = TableInfo.EXPENSE_NAME + " LIKE ?";
-        String columns[] = {TableInfo.EXPENSE_NAME, TableInfo.EXPENSE_COST, TableInfo.EXPENSE_CATEGORY};
+        //String columns[] = {TableInfo.EXPENSE_NAME, TableInfo.EXPENSE_COST, TableInfo.EXPENSE_CATEGORY};
         String args[] = {name};
         SQLiteDatabase SQ = DOP.getWritableDatabase();
         SQ.delete(TableInfo.TABLE_NAME, selection, args);
     }
 
+    public void updateExpenseEntry(DatabaseOperations DOP, String name, String new_name, String new_cost, String new_category){
+        SQLiteDatabase SQ = DOP.getWritableDatabase();
+        String selection = TableInfo.EXPENSE_NAME + " Like ?";
+        String args[] = {new_name};
+        ContentValues values = new ContentValues();
+        values.put(TableInfo.EXPENSE_NAME, new_name);
+        values.put(TableInfo.EXPENSE_COST, new_cost);
+        values.put(TableInfo.EXPENSE_CATEGORY, new_category);
+        SQ.update(TableInfo.TABLE_NAME, values, selection, args);
+    }
 
 }

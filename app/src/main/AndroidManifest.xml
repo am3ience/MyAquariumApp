@@ -23,7 +23,7 @@
         <activity android:name=".AddWaterParam" />
         <activity android:name=".AddTimeline" />
         <activity android:name=".AddTask" />
-        <activity android:name=".DeleteExpense"></activity>
+        <activity android:name=".EditExpense"></activity>
     </application>
 
 </manifest>

@@ -9,21 +9,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class DeleteExpense extends AppCompatActivity {
+public class EditExpense extends AppCompatActivity {
 
-    Button del;
-    EditText Name;
-    String name;
+    Button del, up;
+    EditText Name, Name2;
+    String name, name2;
     DatabaseOperations DOP;
     Context CTX = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delete_expense);
+        setContentView(R.layout.activity_edit_expense);
 
         del = (Button)findViewById(R.id.deleteExpense);
         Name = (EditText)findViewById(R.id.deleteExpenseName);
+        up = (Button)findViewById(R.id.deleteExpense);
+        Name2 = (EditText)findViewById(R.id.deleteExpenseName);
 
 
 
@@ -58,6 +60,7 @@ public class DeleteExpense extends AppCompatActivity {
         }
 
     }
+
 
 
 }

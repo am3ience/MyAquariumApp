@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.myaquariumapp.DeleteExpense">
+    tools:context="com.example.myaquariumapp.EditExpense">
 
 
     <EditText
@@ -30,6 +30,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/deleteExpense"
         android:onClick="DeleteExpense"/>
+
 
 
 </RelativeLayout>

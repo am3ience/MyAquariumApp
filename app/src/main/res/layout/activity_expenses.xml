@@ -36,7 +36,7 @@
         app:backgroundTint="@android:color/white"
         android:layout_alignParentRight="true"
         android:layout_below="@id/floatingActionButton"
-        android:onClick="OpenDeleteExpense"
+        android:onClick="OpenEditExpense"
         android:layout_marginTop="63dp" />
 
     <TextView
