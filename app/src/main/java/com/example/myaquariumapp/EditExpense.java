@@ -54,7 +54,8 @@ public class EditExpense extends AppCompatActivity {
             Toast.makeText(getBaseContext(), "Entry Removed Successfully", Toast.LENGTH_LONG).show();
             finish();
 
-        }else{
+        }
+        else{
             Toast.makeText(getBaseContext(), "Invalid Name", Toast.LENGTH_LONG).show();
             finish();
         }

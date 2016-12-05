@@ -43,6 +43,8 @@ public class AddExpense extends AppCompatActivity {
 
         expenseCategory = (RadioGroup) findViewById(R.id.RadioGroup);
 
+
+
         /*REG = (Button) findViewById(R.id.button);
         REG.setOnClickListener(new View.OnClickListener(){*/
 
@@ -82,8 +84,23 @@ public class AddExpense extends AppCompatActivity {
 
         expenseCategoryString = radioButton.getText().toString();
 
-        BackgroundTask backgroundTask = new BackgroundTask(this);
-        backgroundTask.execute("add_info", expenseNameString, expenseCostString, expenseCategoryString);
+        //BackgroundTask backgroundTask = new BackgroundTask(this);
+        //backgroundTask.execute("add_info", expenseNameString, expenseCostString, expenseCategoryString);
+
+        if (expenseNameString.matches("")) {
+            Toast.makeText(this, "You did not enter a Name", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (expenseCostString.matches("")) {
+            Toast.makeText(this, "You did not enter a Cost", Toast.LENGTH_SHORT).show();
+            return;
+        } else if (expenseCostString.matches("") && expenseNameString.matches("")) {
+            Toast.makeText(this, "You did not enter anything", Toast.LENGTH_SHORT).show();
+            return;
+
+        } else {
+            BackgroundTask backgroundTask = new BackgroundTask(this);
+            backgroundTask.execute("add_info", expenseNameString, expenseCostString, expenseCategoryString);
+        }
 
     }
 
