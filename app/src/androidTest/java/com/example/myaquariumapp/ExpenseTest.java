@@ -34,7 +34,7 @@ public class ExpenseTest {
             new ActivityTestRule<>(AddExpense.class);
 
     @Test
-    public void ensureTextChangesWork() {
+    public void ensureAddDeleteExpenseWorks() {
         // Type text and then press the button.
         onView(withId(R.id.expenseName))
                 .perform(typeText("Test"), closeSoftKeyboard());
@@ -58,6 +58,24 @@ public class ExpenseTest {
 
         //click button
         onView(withId(R.id.button)).perform(click());
+
+        //click button
+        onView(withId(R.id.floatingActionButton2)).perform(click());
+
+        // Type text and then press the button.
+        onView(withId(R.id.deleteExpenseName))
+                .perform(typeText("Test"), closeSoftKeyboard());
+
+        // Check that the text was changed.
+        onView(withId(R.id.deleteExpenseName)).check(matches(withText("Test")));
+
+
+        //click button
+        onView(withId(R.id.deleteExpense)).perform(click());
+
+
     }
+
+
 
 }

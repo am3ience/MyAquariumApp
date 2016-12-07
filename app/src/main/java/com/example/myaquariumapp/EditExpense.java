@@ -1,6 +1,7 @@
 package com.example.myaquariumapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -45,19 +46,21 @@ public class EditExpense extends AppCompatActivity {
                 correct_name = true;
             }
 
-        }while(CR.moveToNext());{
+        }while(CR.moveToNext());
+        {
 
-        }
 
-        if(correct_name == true){
-            DOP.deleteEntry(DOP,name);
-            Toast.makeText(getBaseContext(), "Entry Removed Successfully", Toast.LENGTH_LONG).show();
-            finish();
+            if (correct_name) {
+                DOP.deleteEntry(DOP, name);
+                Toast.makeText(getBaseContext(), "Entry Removed Successfully", Toast.LENGTH_LONG).show();
+                //finish();
+                Intent intent = new Intent(this, Expenses.class);
+                startActivity(intent);
 
-        }
-        else{
-            Toast.makeText(getBaseContext(), "Invalid Name", Toast.LENGTH_LONG).show();
-            finish();
+            }else{
+                Toast.makeText(getBaseContext(), "Invalid Name", Toast.LENGTH_LONG).show();
+                finish();
+            }
         }
 
     }

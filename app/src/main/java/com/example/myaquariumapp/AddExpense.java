@@ -100,6 +100,8 @@ public class AddExpense extends AppCompatActivity {
         } else {
             BackgroundTask backgroundTask = new BackgroundTask(this);
             backgroundTask.execute("add_info", expenseNameString, expenseCostString, expenseCategoryString);
+            Intent intent = new Intent(this, Expenses.class);
+            startActivity(intent);
         }
 
     }
