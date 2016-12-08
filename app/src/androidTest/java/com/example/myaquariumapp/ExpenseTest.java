@@ -30,11 +30,15 @@ import static org.hamcrest.Matchers.not;
 public class ExpenseTest {
 
     @Rule
-    public ActivityTestRule<AddExpense> mActivityRule =
-            new ActivityTestRule<>(AddExpense.class);
+    public ActivityTestRule<Expenses> mActivityRule =
+            new ActivityTestRule<>(Expenses.class);
 
     @Test
-    public void ensureAddDeleteExpenseWorks() {
+    public void ensureAddExpenseWorks() {
+
+        //click button
+        onView(withId(R.id.floatingActionButton)).perform(click());
+
         // Type text and then press the button.
         onView(withId(R.id.expenseName))
                 .perform(typeText("Test"), closeSoftKeyboard());
@@ -59,6 +63,13 @@ public class ExpenseTest {
         //click button
         onView(withId(R.id.button)).perform(click());
 
+
+
+    }
+
+    @Test
+    public void ensureDeleteExpenseWorks() {
+
         //click button
         onView(withId(R.id.floatingActionButton2)).perform(click());
 
@@ -74,7 +85,10 @@ public class ExpenseTest {
         onView(withId(R.id.deleteExpense)).perform(click());
 
 
+
+
     }
+
 
 
 
